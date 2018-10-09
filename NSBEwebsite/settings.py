@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth', #This will help with login, logout functionality
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -137,3 +137,5 @@ LOGOUT_REDIRECT_URL ='/accounts/login'
 # configure emails for password reset
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
