@@ -15,6 +15,22 @@ class CustomUser(AbstractUser):
     dues_paid = models.BooleanField(verbose_name='Dues Paid?',default=False)
     eboard_member = models.BooleanField(verbose_name='E-Board Member?',default=False)
 
+    FRESHMAN = 'FR'
+    SOPHOMORE = 'SO'
+    JUNIOR = 'JR'
+    SENIOR = 'SR'
+    CLASSIFICATION_CHOICES =(
+        ('FR', 'Freshman'),
+        ('SO', 'Sophomore'),
+        ('JR', 'Junior'),
+        ('FR', 'Senior'),
+    )
+    classification = models.CharField(
+        max_length=2,
+        choices = CLASSIFICATION_CHOICES,
+        default=FRESHMAN,
+    )
+
 
     def __str__(self):
         return "@{}".format(self.username)
