@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<h2>Login</h2>
+
+<!-- Standard Django form using post to send data -->
+<form method="post">
+
+    <!-- csrf token for security concerns, namely to prevent a XSS attack -->
+    {% csrf_token %}
+
+    <!-- the forms contents are outputted between paragraphs tags thanks to form.as p-->
+    {{ form.as_p }}
+
+    <!-- submit button -->
+    <button type="submit">Login</button>
+
+
+</form>
+
+</body>
+</html>
+{% endblock %}
+
+<!-- We must update the settings.py file to tell Django to look for a templates folder at the project level. Update the DIRs setting within Templates.  -->

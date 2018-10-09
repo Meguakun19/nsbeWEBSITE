@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', #This will help with login, logout functionality
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -57,7 +57,9 @@ ROOT_URLCONF = 'NSBEwebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #Updated the file to tell django to look for a templates folder at the project level
+        #You accomplish this by updating the DIRS setting
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +129,7 @@ STATIC_URL = '/static/'
 # [1] First thing I did. Adding a path to our static files.
 #[1a] The files that get served from your Django web application are referred to as static files.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+LOGIN_REDIRECT_URL ='home'
+LOGOUT_REDIRECT_URL ='/accounts/login'
