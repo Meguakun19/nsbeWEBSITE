@@ -25,7 +25,8 @@ SECRET_KEY = '6-_2lqz1kq%1vgp+tzkjon*$3qz9d=4wcx!c$^%b@28gz5nx^!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#[3] Added my local server to the list of allowed hosts.
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -104,8 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# [2] Changed Time zone from UTC to US/Central
+TIME_ZONE = 'US/Central'
 
 USE_I18N = True
 
@@ -117,4 +118,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
+
+# [1] First thing I did. Adding a path to our static files.
+#[1a] The files that get served from your Django web application are referred to as static files.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
